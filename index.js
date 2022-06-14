@@ -1,10 +1,10 @@
-const express = require("express");
+import express from "express";
 
 const app = express();
-app.use(express.json());
 
-let rooms = [];
-let customers = {};
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
 
 // Creating a Room
 
@@ -120,6 +120,7 @@ app.get("/customers", (req, res) => {
   res.send(customers);
 });
 
-app.listen(process.env.PORT || 3001, () => {
-  console.log("listening on port 3001");
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server listening on ${PORT}`);
 });
